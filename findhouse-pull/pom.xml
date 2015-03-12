@@ -8,10 +8,23 @@
     <artifactId>findhouse-pull</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <packaging>jar</packaging>
+
+    <parent>
+        <groupId>com.hialan.com</groupId>
+        <artifactId>findhouse</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
     <dependencies>
         <dependency>
             <groupId>us.codecraft</groupId>
             <artifactId>webmagic-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
         </dependency>
     </dependencies>
 
