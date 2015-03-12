@@ -8,5 +8,11 @@
     <artifactId>findhouse-pull</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <dependencies>
+        <dependency>
+            <groupId>us.codecraft</groupId>
+            <artifactId>webmagic-core</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
