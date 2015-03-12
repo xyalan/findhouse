@@ -8,9 +8,12 @@
     <artifactId>findhouse</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <packaging>pom</packaging>
+
     <properties>
         <com.google.guava>18.0</com.google.guava>
         <webmagic.core>0.5.2</webmagic.core>
+        <junit>4.11</junit>
     </properties>
 
     <dependencyManagement>
@@ -25,6 +28,13 @@
                 <groupId>us.codecraft</groupId>
                 <artifactId>webmagic-core</artifactId>
                 <version>${webmagic.core}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit}</version>
+                <scope>test</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -10,6 +10,8 @@ import us.codecraft.webmagic.processor.PageProcessor;
  * Date: 3/12/15 00:23
  */
 public class HouseSpider implements PageProcessor {
+	private Site site = new Site();
+
 	@Override
 	public void process(Page page) {
 
@@ -17,6 +19,7 @@ public class HouseSpider implements PageProcessor {
 
 	@Override
 	public Site getSite() {
-		return null;
+		return site;
 	}
+
 }
