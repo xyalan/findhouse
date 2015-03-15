@@ -11,8 +11,13 @@ import us.codecraft.webmagic.pipeline.ConsolePipeline;
  */
 public class SpiderStarter {
 	public void action() {
-		Spider.create(new HouseSpider())
-				.addUrl(HouseSource.DOUBAN, HouseSource.COM_58)
+		Spider.create(new DoubanHouseProcessor())
+				.addUrl(HouseSource.DOUBAN)
+				.pipeline(new ConsolePipeline())
+				.run();
+
+		Spider.create(new TongChengHouseProcessor())
+				.addUrl(HouseSource.COM_58)
 				.pipeline(new ConsolePipeline())
 				.run();
 	}
