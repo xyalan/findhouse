@@ -3,6 +3,7 @@ package com.hialan.house.spider;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.processor.PageProcessor;
+import us.codecraft.webmagic.selector.Html;
 
 import java.util.List;
 
@@ -16,7 +17,8 @@ public class DoubanHouseProcessor implements PageProcessor {
 
 	@Override
 	public void process(Page page) {
-		List<String> links = page.getHtml().links().regex(".*topic.*").all();
+		Html html = page.getHtml();
+		List<String> links = html.links().regex(".*topic.*").all();
 		System.out.println(links);
 	}
 
