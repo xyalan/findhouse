@@ -7,6 +7,10 @@
     <groupId>com.hialan.com</groupId>
     <artifactId>findhouse</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>findhouse-pull</module>
+        <module>findhouse-subscribe</module>
+    </modules>
 
     <packaging>pom</packaging>
 
