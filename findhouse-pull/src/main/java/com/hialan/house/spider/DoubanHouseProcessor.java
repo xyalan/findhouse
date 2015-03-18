@@ -19,12 +19,7 @@ public class DoubanHouseProcessor implements PageProcessor {
 
 	@Override
 	public void process(Page page) {
-		Html html = page.getHtml();
-		Selectable selectable = page.getHtml().xpath("//div[@id='group-topics']");
-		System.out.println(selectable);
-		page.putField("topic", selectable);
-		List<String> links = html.links().regex(".*topic.*").all();
-		System.out.println(links);
+		this.parseAllTopics(page);
 	}
 
 	@Override
@@ -34,6 +29,12 @@ public class DoubanHouseProcessor implements PageProcessor {
 					"AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.89 Safari/537.36");
 		}
 		return site;
+	}
+
+	public void parseAllTopics(Page page) {
+		Selectable selectable = page.getHtml().xpath("//div[@id='group-topics']//a");
+		List<Selectable> selectables = selectable.nodes();
+		page.putField("allTopics", selectables);
 	}
 
 }
