@@ -4,6 +4,8 @@ import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.processor.PageProcessor;
 import us.codecraft.webmagic.selector.Html;
+import us.codecraft.webmagic.selector.HtmlNode;
+import us.codecraft.webmagic.selector.Selectable;
 
 import java.util.List;
 
@@ -18,6 +20,9 @@ public class DoubanHouseProcessor implements PageProcessor {
 	@Override
 	public void process(Page page) {
 		Html html = page.getHtml();
+		Selectable selectable = page.getHtml().xpath("//div[@id='group-topics']");
+		System.out.println(selectable);
+		page.putField("topic", selectable);
 		List<String> links = html.links().regex(".*topic.*").all();
 		System.out.println(links);
 	}
