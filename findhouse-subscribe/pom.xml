@@ -11,5 +11,11 @@
 
     <artifactId>findhoust-subscribe</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

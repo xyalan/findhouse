@@ -15,9 +15,10 @@
     <packaging>pom</packaging>
 
     <properties>
-        <com.google.guava>18.0</com.google.guava>
-        <webmagic.core>0.5.2</webmagic.core>
-        <junit>4.11</junit>
+        <google.guava.version>18.0</google.guava.version>
+        <webmagic.core.version>0.5.2</webmagic.core.version>
+        <junit.version>4.11</junit.version>
+        <java.mail.version>1.4.7</java.mail.version>
     </properties>
 
     <dependencyManagement>
@@ -25,20 +26,26 @@
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>${com.google.guava}</version>
+                <version>${google.guava.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>us.codecraft</groupId>
                 <artifactId>webmagic-core</artifactId>
-                <version>${webmagic.core}</version>
+                <version>${webmagic.core.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
-                <version>${junit}</version>
+                <version>${junit.version}</version>
                 <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.mail</groupId>
+                <artifactId>mail</artifactId>
+                <version>${java.mail.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
