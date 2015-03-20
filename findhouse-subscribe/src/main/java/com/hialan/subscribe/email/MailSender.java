@@ -1,4 +1,4 @@
-package com.hialan.subscribe.push;
+package com.hialan.subscribe.email;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -13,7 +13,7 @@ import java.util.Properties;
 public class MailSender {
 	private Session session = null;
 
-	private final String userName = "";
+	private final String userName = "alan@hialan.com";
 
 	private final String password = "";
 
@@ -25,7 +25,7 @@ public class MailSender {
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.starttls.enable", "true");
-		props.put("mail.smtp.host", "smtp.gmail.com");
+		props.put("mail.smtp.host", "smtp.qq.com");
 		props.put("mail.smtp.port", "587");
 		return props;
 	}
@@ -37,10 +37,11 @@ public class MailSender {
 	}
 
 	private Message buildMsg(String content) throws MessagingException  {
+		createSession();
 		Message message = new MimeMessage(session);
 		message.setFrom(new InternetAddress("alan@hialan.com"));
-		message.setRecipient(Message.RecipientType.TO, null);
-		message.setSubject("");
+		message.setRecipient(Message.RecipientType.TO, new InternetAddress("alanlhy@gmail.com"));
+		message.setSubject("test");
 		message.setText(content);
 
 		return message;
@@ -49,4 +50,5 @@ public class MailSender {
 	public void sendMail(String content) throws MessagingException {
 		Transport.send(buildMsg(content));
 	}
+
 }

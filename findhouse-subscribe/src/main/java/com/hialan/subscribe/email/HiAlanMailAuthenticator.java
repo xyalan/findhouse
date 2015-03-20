@@ -1,4 +1,4 @@
-package com.hialan.subscribe.push;
+package com.hialan.subscribe.email;
 
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
