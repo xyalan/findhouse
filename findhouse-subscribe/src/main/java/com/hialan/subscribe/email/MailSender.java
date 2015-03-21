@@ -13,11 +13,9 @@ import java.util.Properties;
 public class MailSender {
 	private Session session = null;
 
-	private final String userName = "alan@hialan.com";
+	private Message message = null;
 
-	private final String password = "";
-
-	public MailSender create() {
+	public static MailSender create() {
 		return new MailSender();
 	}
 
@@ -30,25 +28,27 @@ public class MailSender {
 		return props;
 	}
 
-	public MailSender createSession() {
-		Authenticator authenticator = new HiAlanMailAuthenticator(userName, password);
+	public MailSender createSession(Authenticator authenticator) {
 		session = Session.getInstance(getProps(), authenticator);
 		return this;
 	}
 
-	private Message buildMsg(String content) throws MessagingException  {
-		createSession();
-		Message message = new MimeMessage(session);
-		message.setFrom(new InternetAddress("alan@hialan.com"));
-		message.setRecipient(Message.RecipientType.TO, new InternetAddress("alanlhy@gmail.com"));
-		message.setSubject("test");
-		message.setText(content);
+	private Message buildMsg(Email email) throws MessagingException  {
+		message = new MimeMessage(session);
+		/*message.setFrom(new InternetAddress(email.getFrom()));
+		message.setRecipient(Message.RecipientType.TO, new InternetAddress(email.getRecipient()));*/
+		message.setSubject(email.getSubject());
+		message.setText(email.getContent());
 
 		return message;
 	}
 
-	public void sendMail(String content) throws MessagingException {
-		Transport.send(buildMsg(content));
+	public void sendMail()  {
+		try {
+			Transport.send(message);
+		} catch (MessagingException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

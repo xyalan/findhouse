@@ -11,6 +11,6 @@ public class MailSenderTest {
 	@Test
 	public void testSendMail() throws Exception{
 		MailSender mailSender = new MailSender();
-		mailSender.sendMail("hello");
+		mailSender.createSession(new HiAlanMailAuthenticator("", "")).sendMail();
 	}
 }
