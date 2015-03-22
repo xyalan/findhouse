@@ -3,6 +3,7 @@ package com.hialan.subscribe.email;
 import javax.mail.Address;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
+import java.util.Arrays;
 import java.util.Optional;
 
 /**
@@ -51,15 +52,21 @@ public class Email {
 		this.from = from;
 	}
 
-	public String getAllRecipients() {
+	public Address[] getAllRecipients() {
 		Address[] address = null;
 		Optional<String[]> optional = Optional.ofNullable(recipients);
 		if (optional.isPresent()) {
 			address = new Address[optional.get().length];
-			for (String rp : optional.get()) {
-			}
+			Arrays.stream(optional.get()).forEach(s -> {
+				try {
+					new InternetAddress(s);
+				} catch (AddressException e) {
+
+				}
+
+			});
 		}
-		return recipient;
+		return address;
 	}
 
 	public void setRecipient(String recipient) {
