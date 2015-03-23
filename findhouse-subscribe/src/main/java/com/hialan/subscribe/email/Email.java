@@ -5,6 +5,7 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import java.util.Arrays;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 /**
  * User: Alan
@@ -17,8 +18,6 @@ public class Email {
 	private String subject;
 
 	private String from;
-
-	private String recipient;
 
 	private String[] recipients;
 
@@ -56,31 +55,29 @@ public class Email {
 		Address[] address = null;
 		Optional<String[]> optional = Optional.ofNullable(recipients);
 		if (optional.isPresent()) {
-			address = new Address[optional.get().length];
-			Arrays.stream(optional.get()).forEach(s -> {
+			address = Arrays.stream(optional.get()).map(s -> {
+				InternetAddress internetAddress = null;
 				try {
-					new InternetAddress(s);
+					internetAddress = new InternetAddress(s);
 				} catch (AddressException e) {
 
 				}
+				return internetAddress;
+			}).toArray(InternetAddress[]::new);
 
-			});
 		}
+
 		return address;
 	}
 
-	public void setRecipient(String recipient) {
-		this.recipient = recipient;
-	}
-
-	public void setRecipients(String[] recipients) {
+	public void setRecipients(String... recipients) {
 		this.recipients = recipients;
 	}
 
 	public static void main(String[] args) throws AddressException {
 		Email email = new Email();
-		email.setFrom("alan@hialan.com");
-		System.out.println(email.getFrom());
+		email.setRecipients("alan@hialan.com");
+		System.out.println(email.getAllRecipients()[0].toString());
 	}
 
 }
