@@ -5,7 +5,6 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import java.util.Arrays;
 import java.util.Optional;
-import java.util.stream.Stream;
 
 /**
  * User: Alan
@@ -72,12 +71,6 @@ public class Email {
 
 	public void setRecipients(String... recipients) {
 		this.recipients = recipients;
-	}
-
-	public static void main(String[] args) throws AddressException {
-		Email email = new Email();
-		email.setRecipients("alan@hialan.com");
-		System.out.println(email.getAllRecipients()[0].toString());
 	}
 
 }

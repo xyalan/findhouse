@@ -1,5 +1,7 @@
 package com.hialan.subscribe.email;
 
+import com.hialan.subscribe.constant.MailServerConfig;
+
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -21,10 +23,10 @@ public class MailSender {
 
 	private Properties getProps() {
 		Properties props = new Properties();
-		props.put("mail.smtp.auth", "true");
-		props.put("mail.smtp.starttls.enable", "true");
-		props.put("mail.smtp.host", "smtp.qq.com");
-		props.put("mail.smtp.port", "587");
+		props.put(MailServerConfig.MAIL_SMTP_AUTH, "true");
+		props.put(MailServerConfig.MAIL_SMTP_STARTTLS_ENABLE, "true");
+		props.put(MailServerConfig.MAIL_SMTP_HOST, "smtp.qq.com");
+		props.put(MailServerConfig.MAIL_SMTP_PORT, "587");
 		return props;
 	}
 
@@ -35,8 +37,8 @@ public class MailSender {
 
 	private Message buildMsg(Email email) throws MessagingException  {
 		message = new MimeMessage(session);
-		/*message.setFrom(new InternetAddress(email.getFrom()));
-		message.setRecipient(Message.RecipientType.TO, new InternetAddress(email.getRecipient()));*/
+		message.setFrom(email.getFrom());
+		message.setRecipients(Message.RecipientType.TO, email.getAllRecipients());
 		message.setSubject(email.getSubject());
 		message.setText(email.getContent());
 
