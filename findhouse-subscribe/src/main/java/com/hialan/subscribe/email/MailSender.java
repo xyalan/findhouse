@@ -1,9 +1,10 @@
 package com.hialan.subscribe.email;
 
 import com.hialan.subscribe.constant.MailServerConfig;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.mail.*;
-import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
@@ -13,6 +14,7 @@ import java.util.Properties;
  * Date: 3/19/15 11:02
  */
 public class MailSender {
+	private Logger logger = LoggerFactory.getLogger(getClass());
 	private Session session = null;
 
 	private Message message = null;
@@ -49,7 +51,7 @@ public class MailSender {
 		try {
 			Transport.send(message);
 		} catch (MessagingException e) {
-			e.printStackTrace();
+			logger.warn("send message failed", e);
 		}
 	}
 
