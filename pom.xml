@@ -10,6 +10,7 @@
     <modules>
         <module>findhouse-pull</module>
         <module>findhouse-subscribe</module>
+        <module>findhouse-web</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -21,6 +22,8 @@
         <java.mail.version>1.5.2</java.mail.version>
         <sf4j.api>1.7.6</sf4j.api>
         <sf4j.log4j>1.7.6</sf4j.log4j>
+        <springframework.version>3.1.2.RELEASE</springframework.version>
+        <servlet-api.version>2.5</servlet-api.version>
     </properties>
 
     <dependencyManagement>
@@ -60,6 +63,33 @@
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-log4j12</artifactId>
                 <version>${sf4j.log4j}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>${servlet-api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${springframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${springframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context-support</artifactId>
+                <version>${springframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${springframework.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
