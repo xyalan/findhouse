@@ -32,24 +32,13 @@
 
 
     <build>
-        <finalName>ccms-web-builder</finalName>
+        <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>2.3</version>
                 <configuration>
                     <warSourceDirectory>src/main/webapp</warSourceDirectory>
-                    <overlays>
-                        <overlay>
-                            <id>client</id>
-                            <groupId>com.yunat.ccms</groupId>
-                            <artifactId>ccms-client</artifactId>
-                            <excludes>
-                                <exclude>WEB-INF/lib/*</exclude>
-                                <exclude>WEB-INF/web.xml</exclude>
-                            </excludes>
-                        </overlay>
-                    </overlays>
                 </configuration>
             </plugin>
 
