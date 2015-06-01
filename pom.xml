@@ -11,6 +11,7 @@
         <module>findhouse-pull</module>
         <module>findhouse-subscribe</module>
         <module>findhouse-web</module>
+        <module>findhouse-search</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -27,6 +28,7 @@
         <java.source.version>1.8</java.source.version>
         <java.target.version>1.8</java.target.version>
         <logback.version>1.1.3</logback.version>
+        <lucene.version>5.1.0</lucene.version>
     </properties>
 
     <dependencyManagement>
@@ -105,6 +107,12 @@
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
                 <version>${logback.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.lucene</groupId>
+                <artifactId>lucene-core</artifactId>
+                <version>${lucene.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
