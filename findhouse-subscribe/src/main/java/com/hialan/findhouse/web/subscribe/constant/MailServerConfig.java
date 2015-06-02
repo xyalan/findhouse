@@ -1,4 +1,4 @@
-package com.hialan.subscribe.constant;
+package com.hialan.findhouse.web.subscribe.constant;
 
 /**
  * User: Alan

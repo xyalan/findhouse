@@ -1,4 +1,4 @@
-package com.hialan.house.pipeline;
+package com.hialan.findhouse.web.crawler.pipeline;
 
 import us.codecraft.webmagic.ResultItems;
 import us.codecraft.webmagic.Task;

@@ -1,10 +1,8 @@
-package com.hialan.house.spider;
+package com.hialan.findhouse.web.crawler.douban;
 
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.processor.PageProcessor;
-import us.codecraft.webmagic.selector.Html;
-import us.codecraft.webmagic.selector.HtmlNode;
 import us.codecraft.webmagic.selector.Selectable;
 
 import java.util.List;
@@ -34,6 +32,7 @@ public class DoubanHouseProcessor implements PageProcessor {
 	public void parseAllTopics(Page page) {
 		Selectable selectable = page.getHtml().xpath("//div[@id='group-topics']//a");
 		List<Selectable> selectables = selectable.nodes();
+		selectables.stream().filter((s) -> s.match()).forEach(System.out::print);
 		page.putField("allTopics", selectables);
 	}
 

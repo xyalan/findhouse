@@ -1,4 +1,4 @@
-package com.hialan.house.spider;
+package com.hialan.findhouse.web.crawler.spider;
 
 import org.junit.Test;
 /**

@@ -1,4 +1,4 @@
-package com.hialan.house.spider;
+package com.hialan.findhouse.web.crawler.tongcheng;
 
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;

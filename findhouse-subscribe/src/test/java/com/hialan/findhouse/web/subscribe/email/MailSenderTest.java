@@ -1,4 +1,5 @@
-package com.hialan.subscribe.email;
+package com.hialan.findhouse.web.subscribe.email;
+
 
 import org.junit.Test;
 

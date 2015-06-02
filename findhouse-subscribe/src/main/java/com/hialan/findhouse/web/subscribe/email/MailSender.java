@@ -1,6 +1,6 @@
-package com.hialan.subscribe.email;
+package com.hialan.findhouse.web.subscribe.email;
 
-import com.hialan.subscribe.constant.MailServerConfig;
+import com.hialan.findhouse.web.subscribe.constant.MailServerConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,7 +27,7 @@ public class MailSender {
 		Properties props = new Properties();
 		props.put(MailServerConfig.MAIL_SMTP_AUTH, "true");
 		props.put(MailServerConfig.MAIL_SMTP_STARTTLS_ENABLE, "true");
-		props.put(MailServerConfig.MAIL_SMTP_HOST, "smtp.qq.com");
+			props.put(MailServerConfig.MAIL_SMTP_HOST, "smtp.qq.com");
 		props.put(MailServerConfig.MAIL_SMTP_PORT, "587");
 		return props;
 	}

@@ -1,6 +1,8 @@
-package com.hialan.house.spider;
+package com.hialan.findhouse.web.crawler.spider;
 
-import com.hialan.house.constant.HouseSource;
+import com.hialan.findhouse.web.crawler.constant.HouseSource;
+import com.hialan.findhouse.web.crawler.douban.DoubanHouseProcessor;
+import com.hialan.findhouse.web.crawler.tongcheng.TongChengHouseProcessor;
 import us.codecraft.webmagic.Spider;
 import us.codecraft.webmagic.pipeline.ConsolePipeline;
 
@@ -13,12 +15,12 @@ public class SpiderStarter {
 	public void action() {
 		Spider.create(new DoubanHouseProcessor())
 				.addUrl(HouseSource.DOUBAN)
-				.pipeline(new ConsolePipeline())
+				.addPipeline(new ConsolePipeline())
 				.run();
 
 		Spider.create(new TongChengHouseProcessor())
 				.addUrl(HouseSource.COM_58)
-				.pipeline(new ConsolePipeline())
+				.addPipeline(new ConsolePipeline())
 				.run();
 	}
 }

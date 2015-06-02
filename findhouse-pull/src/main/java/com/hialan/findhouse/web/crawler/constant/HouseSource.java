@@ -1,4 +1,4 @@
-package com.hialan.house.constant;
+package com.hialan.findhouse.web.crawler.constant;
 
 /**
  * User: Alan

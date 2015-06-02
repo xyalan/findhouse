@@ -29,6 +29,11 @@
         <java.target.version>1.8</java.target.version>
         <logback.version>1.1.3</logback.version>
         <lucene.version>5.1.0</lucene.version>
+        <jetty.run.port>8088</jetty.run.port>
+        <jetty.stop.port>9966</jetty.stop.port>
+        <jetty.version>9.2.11.v20150529</jetty.version>
+        <maven.compile.version>3.3</maven.compile.version>
+        <maven.war.version>2.6</maven.war.version>
     </properties>
 
     <dependencyManagement>
@@ -79,6 +84,12 @@
             </dependency>
 
             <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
                 <version>${servlet-api.version}</version>
@@ -104,12 +115,6 @@
             </dependency>
 
             <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-classic</artifactId>
-                <version>${logback.version}</version>
-            </dependency>
-
-            <dependency>
                 <groupId>org.apache.lucene</groupId>
                 <artifactId>lucene-core</artifactId>
                 <version>${lucene.version}</version>
@@ -117,19 +122,53 @@
         </dependencies>
     </dependencyManagement>
 
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+    </dependencies>
+
     <build>
         <pluginManagement>
             <plugins>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>2.5.1</version>
+                    <version>${maven.compile.version}</version>
                     <configuration>
                         <source>${java.source.version}</source>
                         <target>${java.target.version}</target>
                         <encoding>${project.build.sourceEncoding}</encoding>
                         <optimize>true</optimize>
                         <debug>true</debug>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>${maven.war.version}</version>
+                    <configuration>
+                        <failOnMissingWebXml>false</failOnMissingWebXml>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-maven-plugin</artifactId>
+                    <version>${jetty.version}</version>
+                    <configuration>
+                        <webAppSourceDirectory>src/main/webapp</webAppSourceDirectory>
+                        <webApp>
+                            <contextPath>/</contextPath>
+                        </webApp>
+                        <scanIntervalSeconds>10</scanIntervalSeconds>
+                        <httpConnector>
+                            <port>${jetty.run.port}</port>
+                        </httpConnector>
+                        <stopKey>foo</stopKey>
+                        <stopPort>${jetty.stop.port}</stopPort>
                     </configuration>
                 </plugin>
             </plugins>

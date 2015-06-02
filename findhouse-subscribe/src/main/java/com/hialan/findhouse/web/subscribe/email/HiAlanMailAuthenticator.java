@@ -1,4 +1,4 @@
-package com.hialan.subscribe.email;
+package com.hialan.findhouse.web.subscribe.email;
 
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
