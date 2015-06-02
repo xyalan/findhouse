@@ -19,13 +19,12 @@ import javax.servlet.ServletRegistration;
 public class Initializer implements WebApplicationInitializer {
 	private Logger logger = LoggerFactory.getLogger(Initializer.class);
 	public void onStartup(ServletContext servletContext) throws ServletException {
-		logger.info("initial web");
 		AnnotationConfigWebApplicationContext applicationContext = getContext();
 
 		ServletRegistration.Dynamic dispatcher = servletContext.addServlet("dispatcherServlet",
 				new DispatcherServlet(applicationContext));
+		dispatcher.addMapping("/");
 		dispatcher.setLoadOnStartup(1);
-		dispatcher.addMapping("/*");
 
 	}
 

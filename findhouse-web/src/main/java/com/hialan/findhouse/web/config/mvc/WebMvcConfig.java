@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 /**
@@ -16,14 +17,14 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "com.hialan.*")
-public class WebMvcConfig {
+public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	private Logger logger = LoggerFactory.getLogger(WebMvcConfig.class);
 	@Bean
 	public InternalResourceViewResolver configureInternalResourceViewResolver() {
 		logger.info("initial mvc config");
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-		resolver.setPrefix("/WEB-INF/page/");
-		resolver.setSuffix(".html");
+		resolver.setPrefix("/WEB-INF/pages/");
+		resolver.setSuffix(".jsp");
 		return resolver;
 	}
 }
