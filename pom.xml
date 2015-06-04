@@ -131,6 +131,12 @@
                 <artifactId>lucene-analyzers-common</artifactId>
                 <version>${lucene.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.apache.lucene</groupId>
+                <artifactId>lucene-analyzers</artifactId>
+                <version>3.6.2</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
