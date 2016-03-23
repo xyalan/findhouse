@@ -13,29 +13,18 @@ import java.nio.file.Paths;
  * Date: 6/2/15 17:52
  */
 public class IndexChunnel {
-	public static Directory buildDirectory(ChunnelType chunnelType) {
-		Directory directory = null;
-		if (chunnelType == ChunnelType.FILESYSTEM) {
-			directory = new RAMDirectory();
-		} else if (chunnelType == ChunnelType.RAM) {
-			try {
-				directory = FSDirectory.open(Paths.get(""));
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-
+    private static Directory directory = null;
+	public static Directory buildDirectory() {
+        directory = new RAMDirectory();
 		return directory;
 	}
 
-	enum ChunnelType {
-		RAM("RAM"),
-		FILESYSTEM("FILE");
-
-		public String type;
-
-		ChunnelType(String type) {
-			this.type = type;
-		}
+	public static Directory buildDirectory(String folder) {
+			try {
+				directory = FSDirectory.open(Paths.get(folder));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		return directory;
 	}
 }

@@ -1,5 +1,6 @@
 package com.hialan.findhouse.search.index;
 
+import com.hialan.findhouse.search.dto.Docs;
 import junit.framework.TestCase;
 
 import java.io.IOException;
@@ -18,12 +19,11 @@ public class IndexerTest extends TestCase {
 	}
 
 	public void testRamIndex() throws IOException {
-		indexer.ramIndex();
-		indexer.close();
+		indexer.ramIndex(new Docs());
 	}
 
 	public void testFileIndex() throws IOException {
-		indexer.fileIndex();
-		indexer.close();
+		indexer.fileIndex("/Users/Alan/Opensource/findhouse/findhouse-search/src/test/resources" +
+				"/index", new Docs());
 	}
 }
