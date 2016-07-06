@@ -23,7 +23,8 @@ public class IndexerTest extends TestCase {
 	}
 
 	public void testFileIndex() throws IOException {
-		indexer.fileIndex("/Users/Alan/Opensource/findhouse/findhouse-search/src/test/resources" +
-				"/index", new Docs());
+		String projectPath = System.getProperty("user.dir");
+		indexer.fileIndex(projectPath + "/src/test/resources/index",
+				new Docs());
 	}
 }

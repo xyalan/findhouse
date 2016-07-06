@@ -27,7 +27,7 @@ public class MailSender {
 		Properties props = new Properties();
 		props.put(MailServerConfig.MAIL_SMTP_AUTH, "true");
 		props.put(MailServerConfig.MAIL_SMTP_STARTTLS_ENABLE, "true");
-			props.put(MailServerConfig.MAIL_SMTP_HOST, "smtp.qq.com");
+		props.put(MailServerConfig.MAIL_SMTP_HOST, "smtp.qq.com");
 		props.put(MailServerConfig.MAIL_SMTP_PORT, "587");
 		return props;
 	}
@@ -37,14 +37,14 @@ public class MailSender {
 		return this;
 	}
 
-	private Message buildMsg(Email email) throws MessagingException  {
+	public MailSender buildMsg(Email email) throws MessagingException  {
 		message = new MimeMessage(session);
 		message.setFrom(email.getFrom());
 		message.setRecipients(Message.RecipientType.TO, email.getAllRecipients());
 		message.setSubject(email.getSubject());
 		message.setText(email.getContent());
 
-		return message;
+		return this;
 	}
 
 	public void sendMail()  {

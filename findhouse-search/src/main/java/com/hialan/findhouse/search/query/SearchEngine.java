@@ -24,8 +24,9 @@ public class SearchEngine {
 	private QueryParser queryParser = null;
 
 	public SearchEngine() throws IOException {
+		String projectPath = System.getProperty("user.dir");
 		searcher = new IndexSearcher(DirectoryReader.open(FSDirectory.open(Paths.get
-				("/Users/Alan/Opensource/findhouse/findhouse-search/src/test/resources/index"))));
+				(projectPath + "/src/test/resources/index"))));
 		queryParser = new QueryParser("title", new StandardAnalyzer());
 	}
 
