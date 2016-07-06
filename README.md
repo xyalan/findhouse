@@ -1,4 +1,24 @@
 # findhouse [![Build Status](https://travis-ci.org/xyalan/findhouse.svg?branch=master)](https://travis-ci.org/xyalan/findhouse)
-身在魔都，每次租房都是一件身心疲惫的事儿。干净、装修好的房子总是少数的，及时看到这些房源才能捷足先登。findhouse能及时发现好房源，并以邮件的方式提醒你，及时发现好房子。
 
-提供根据关键词搜索房源，目前主要包含豆瓣小组中上海几个相关的租房小组，已经58上100%个人房源的少量数据。
+findhouse是一个房源搜索的Web应用,聚集了豆瓣上海租房、58等网站的房源数据。根据关键词搜索相关的房源数据,并且提供每一条数据的链接。也可订阅自己关注的关键词,
+应用会每隔一段时间更新然后发送到订阅的邮箱。
+
+## Build
+
+项目基于通过Maven构建,并且编译于Java8.
+
+### Install Maven
+
+Install Maven 3.2.x or newer
+
+### Running Tests
+
+```
+mvn clean test
+```
+
+### Packaging Artifacts
+
+```
+mvn clean package
+```
