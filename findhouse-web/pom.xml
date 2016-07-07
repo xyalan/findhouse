@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>findhouse-web</artifactId>
+    <name>findhouse:web</name>
     <packaging>war</packaging>
 
     <dependencies>

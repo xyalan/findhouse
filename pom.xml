@@ -12,7 +12,9 @@
         <module>findhouse-subscribe</module>
         <module>findhouse-web</module>
         <module>findhouse-search</module>
+        <module>findhouse-api</module>
     </modules>
+    <name>findhouse:parent</name>
 
     <packaging>pom</packaging>
 
@@ -22,18 +24,20 @@
         <junit.version>4.11</junit.version>
         <java.mail.version>1.5.5</java.mail.version>
         <sf4j.api>1.7.6</sf4j.api>
-        <springframework.version>4.1.6.RELEASE</springframework.version>
+        <springframework.version>4.2.1.Release</springframework.version>
         <servlet-api.version>3.1.0</servlet-api.version>
         <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
         <java.source.version>1.8</java.source.version>
         <java.target.version>1.8</java.target.version>
-        <logback.version>1.1.3</logback.version>
+        <logback.version>1.1.7</logback.version>
         <lucene.version>5.1.0</lucene.version>
         <jetty.run.port>8088</jetty.run.port>
         <jetty.stop.port>9966</jetty.stop.port>
         <jetty.version>9.2.11.v20150529</jetty.version>
         <maven.compile.version>3.3</maven.compile.version>
         <maven.war.version>2.6</maven.war.version>
+        <java.version>1.8</java.version>
+        <springframework.boot.version>1.3.6.RELEASE</springframework.boot.version>
     </properties>
 
     <dependencyManagement>
@@ -136,6 +140,12 @@
                 <groupId>org.apache.lucene</groupId>
                 <artifactId>lucene-analyzers</artifactId>
                 <version>3.6.2</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${springframework.boot.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
