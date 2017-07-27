@@ -11,6 +11,11 @@ pipeline {
         sh 'mvn clean'
       }
     }
+    stage('deploy') {
+      steps {
+        sh 'mvn package'
+      }
+    }
   }
   tools {
     maven 'mvn3.5.0'
