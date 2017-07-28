@@ -18,7 +18,7 @@ pipeline {
     }
     stage('post') {
       steps {
-        archiveArtifacts 'target/**/*'
+        archiveArtifacts '**/target/**/*'
       }
     }
   }
