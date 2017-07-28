@@ -16,6 +16,11 @@ pipeline {
         sh 'mvn package'
       }
     }
+    stage('post') {
+      steps {
+        archiveArtifacts 'target/*.jar'
+      }
+    }
   }
   tools {
     maven 'mvn3.5.0'
