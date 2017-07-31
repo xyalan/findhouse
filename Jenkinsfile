@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent { docker 'maven:3.3.3' }
   stages {
     stage('build') {
       steps {
@@ -21,9 +21,5 @@ pipeline {
         archiveArtifacts '**/target/**/*.war'
       }
     }
-  }
-  tools {
-    maven 'mvn3.5.0'
-    jdk 'jdk8'
   }
 }
