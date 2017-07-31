@@ -22,4 +22,11 @@ pipeline {
       }
     }
   }
+  post {
+    failure {
+      mail to: 'houlong.yang@ele.me',
+           subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+           body: "Something is wrong with ${env.BUILD_URL}"
+    }
+  }
 }
