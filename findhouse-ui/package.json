@@ -1,7 +1,7 @@
 {
   "name": "findhouse-ui",
   "version": "1.0.0",
-  "description": "This is findhouse web ui",
+  "description": "This is UI of findhouse",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
